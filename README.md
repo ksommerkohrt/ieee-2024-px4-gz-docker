@@ -22,7 +22,7 @@ To build the image
 
 `docker compose build`
 
-To run multiple drones
+To run the docker image
 
 `./run_dev.sh`
 
@@ -36,6 +36,12 @@ To start px4_sitl and ros2 offboard control, split each terminator into 3 panels
 `PX4_SYS_AUTOSTART=4050 PX4_GZ_WORLD=maze PX4_GZ_MODEL=x500_lidar ./build/px4_sitl_default/bin/px4` to start px4_sitl with x500 w/ lidar in maze using gz-harmonic.
 
 2. `MicroXRCEAgent udp4 -p 8888` to start DDS agent for communication with ROS2
+  
+3. `cd /work/ros2_ws/ros_gz_sim_demos/launch/gpu_lidar_bridge.launch.py`
+
+    `ros2 launch ros_gz_sim_demos lidar_bridge.launch.py`
+
+   for easy lidar bridge and visualization
 
 
 ### Environment Variables

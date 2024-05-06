@@ -1,7 +1,7 @@
 #!/bin/bash
 if [ ! -d ./work/px4 ] ; then
     cd ./work
-    git clone git@github.com:PX4/PX4-Autopilot px4
+    git clone git@github.com:ksommerkohrt/PX4-Autopilot-Maze.git -b lidar px4
     cd px4
     git tag v1.14.0-beta2
     cd ../..

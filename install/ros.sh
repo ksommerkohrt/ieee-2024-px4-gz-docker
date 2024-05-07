@@ -20,3 +20,4 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
 	libgflags-dev
 
 sudo apt install ros-humble-actuator-msgs 
+sudo apt install ros-humble-vision-msgs

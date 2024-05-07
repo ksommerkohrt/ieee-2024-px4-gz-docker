@@ -14,6 +14,7 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
 	ros-${ROS_VERSION}-cyclonedds \
 	ros-${ROS_VERSION}-rmw-cyclonedds-cpp \
 	ros-${ROS_VERSION}-gps-msgs \
+	ros-${ROS_VERSION}-vision-msgs \
 	python3-rosdep \
 	python3-colcon-common-extensions \
 	libgflags-dev

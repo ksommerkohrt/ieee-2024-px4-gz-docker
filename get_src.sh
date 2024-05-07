@@ -12,7 +12,6 @@ if [ ! -d ./work/ros2_ws/src ] ; then
     cd work/ros2_ws/src
     git clone git@github.com:PX4/px4_msgs.git
     git clone git@github.com:Jaeyoung-Lim/px4-offboard.git
-    git clone git@github.com:mavlink/mavros.git
     git clone -b humble git@github.com:melodylylin/ros_gz.git
 fi
 

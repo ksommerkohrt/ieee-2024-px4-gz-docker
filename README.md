@@ -1,6 +1,6 @@
 Step 1 set up docker:
 
-`cd ieee-2024-px4-gz-docker`
+`cd ~/ieee-2024-px4-gz-docker`
 
 `docker pull melodyliyulin/ieee-2024-px4-gz-docker:latest`
 
@@ -8,7 +8,7 @@ Step 1 set up docker:
 
 Step 2 set up work folder:
 
-`cd ieee-2024-px4-gz-docker/work/ros2_ws`
+`cd ~/ieee-2024-px4-gz-docker/work/ros2_ws`
 
 `rosdep install -r --from-paths src -i -y --rosdistro humble`
 
@@ -18,13 +18,13 @@ Step 2 set up work folder:
 
 Step 3 run docker image
 
-`cd`
-
-`cd ieee-2024-px4-gz-docker`
+`cd ~/ieee-2024-px4-gz-docker`
 
 `./run_dev.sh`
 
 Open a new terminal into the same folder
+
+`cd ~/ieee-2024-px4-gz-docker`
 
 `docker exec -u user -it px4_gz-px4_gz-1 terminator`
 
@@ -34,7 +34,7 @@ open 4 terminals in docker image
 
 In terminal 1:
 
-In work/px4
+`cd ~/work/px4`
 
 ` make px4_sitl`
 
@@ -42,13 +42,13 @@ In work/px4
 
 In terminal 2:
 
-run in work/
+`cd ~/work/`
 
 `MicroXRCEAgent udp4 -p 8888`
 
 In terminal 3:
 
-In work/ros2_ws
+`cd ~/work/ros2_ws`
 
 `source install/setup.bash`
 
@@ -56,7 +56,7 @@ In work/ros2_ws
 
 In terminal 4: (to verify bridge is working)
 
-In work/ros2_ws
+`cd ~/work/ros2_ws`
 
 `source install/setup.bash`
 

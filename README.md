@@ -4,6 +4,8 @@ Step 1 set up work folder:
 
 `cd ~/ieee-2024-px4-gz-docker/work/ros2_ws`
 
+`export GZ_VERSION=harmonic` 
+
 `rosdep install -r --from-paths src -i -y --rosdistro humble`
 
 `source /opt/ros/humble/setup.bash`

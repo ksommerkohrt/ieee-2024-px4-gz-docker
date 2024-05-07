@@ -19,9 +19,9 @@ Step 2 set up docker:
 
 `cd ~/ieee-2024-px4-gz-docker`
 
-`docker pull melodyliyulin/ieee-2024-px4-gz-docker:latest`
+`docker pull melodylylin/ieee-2024-px4-gz-docker:latest`
 
-`docker image tag melodyliyulin/ieee-2024-px4-gz-docker:latest px4_gz`
+`docker image tag melodylylin/ieee-2024-px4-gz-docker:latest px4_gz`
 
 
 Step 3 run docker image
@@ -63,10 +63,6 @@ In terminal 3:
 `ros2 launch ros_gz_sim_demos lidar_bridge.launch.py`
 
 In terminal 4: (to verify bridge is working)
-
-`cd ~/work/ros2_ws`
-
-`source install/setup.bash`
 
 `ros2 topic echo lidar/points`
 

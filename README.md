@@ -1,52 +1,66 @@
-# px4-gz-docker
-Docker files needed to build images for px4_sitl simulation in ROS2 and Gazebo
+Step 1 set up docker:
 
-The `./work` directory setup 
+`cd ieee-2024-px4-gz-docker`
 
-run `./get_src.sh` to clone each repo
-```
-work/
-┣ px4/
-┣ ros2_ws/
-┃ ┗ src/
-┃   ┣ px4_msgs/
-┃   ┣ px4-offboard/
-┃   ┗ ros_gz/
-┗ .gitignore
-```
-Please build ros_gz from source. [see ros-gz](https://github.com/gazebosim/ros_gz)
+`docker pull melodyliyulin/ieee-2024-px4-gz-docker:latest
 
+docker image tag melodyliyulin/ieee-2024-px4-gz-docker:latest px4_gz`
 
-### Build and run
-To build the image
+Step 2 set up work folder:
 
-`docker compose build`
+`cd ieee-2024-px4-gz-docker/work/ros2_ws`
 
-To run the docker image
+`rosdep install -r --from-paths src -i -y --rosdistro humble`
+
+`source /opt/ros/humble/setup.bash`
+
+`colcon build`
+
+Step 3 run docker image
+
+`cd`
+
+`cd ieee-2024-px4-gz-docker`
 
 `./run_dev.sh`
 
-To access the shell of each service, in two different terminals run
+Open a new terminal into the same folder
 
-Terminal 1: `docker exec -u user -it px4_gz-px4_gz-1 terminator`
+`docker exec -u user -it px4_gz-px4_gz-1 terminator`
 
-To start px4_sitl and ros2 offboard control, split each terminator into 3 panels and run
+Step 4 
 
-1. `cd px4 && make px4_sitl` to build px4_sitl first. (This only need to be built once in one of the container shells)\
-`PX4_SYS_AUTOSTART=4050 PX4_GZ_WORLD=maze PX4_GZ_MODEL=x500_lidar ./build/px4_sitl_default/bin/px4` to start px4_sitl with x500 w/ lidar in maze using gz-harmonic.
+open 4 terminals in docker image 
 
-2. `MicroXRCEAgent udp4 -p 8888` to start DDS agent for communication with ROS2
-  
-3. `cd /work/ros2_ws/ros_gz_sim_demos/launch/gpu_lidar_bridge.launch.py`
+In terminal 1:
 
-    `ros2 launch ros_gz_sim_demos lidar_bridge.launch.py`
+In work/px4
 
-   for easy lidar bridge and visualization
+` make px4_sitl`
+
+`PX4_SYS_AUTOSTART=4050 PX4_GZ_WORLD=maze PX4_GZ_MODEL=x500_lidar ./build/px4_sitl_default/bin/px4`
+
+In terminal 2:
+
+run in work/
+
+`MicroXRCEAgent udp4 -p 8888`
+
+In terminal 3:
+
+In work/ros2_ws
+
+`source install/setup.bash`
+
+`ros2 launch ros_gz_sim_demos lidar_bridge.launch.py`
+
+In terminal 4: (to verify bridge is working)
+
+In work/ros2_ws
+
+`source install/setup.bash`
+
+`ros2 topic echo lidar/points`
 
 
-### Environment Variables
-- `PX4_GZ_MODEL` Name of the px4 vehicle model to spawn in gz
-- `PX4_GZ_MODEL_POSE` Spawn pose of the vehicle model, must used with `PX4_GZ_MODEL`
-- `PX4_MICRODDS_NS` Namespace assigned to the sitl vehicle, normally associated with px4 instances, but can be set manually
-- `ROS_DOMAIN_ID` Separate each container into its own domain 
-  
+   

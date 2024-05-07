@@ -2,9 +2,9 @@ Step 1 set up docker:
 
 `cd ieee-2024-px4-gz-docker`
 
-`docker pull melodyliyulin/ieee-2024-px4-gz-docker:latest
+`docker pull melodyliyulin/ieee-2024-px4-gz-docker:latest`
 
-docker image tag melodyliyulin/ieee-2024-px4-gz-docker:latest px4_gz`
+`docker image tag melodyliyulin/ieee-2024-px4-gz-docker:latest px4_gz`
 
 Step 2 set up work folder:
 

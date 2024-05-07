@@ -1,12 +1,4 @@
-Step 1 set up docker:
-
-`cd ~/ieee-2024-px4-gz-docker`
-
-`docker pull melodyliyulin/ieee-2024-px4-gz-docker:latest`
-
-`docker image tag melodyliyulin/ieee-2024-px4-gz-docker:latest px4_gz`
-
-Step 2 set up work folder:
+Step 1 set up work folder:
 
 `cd ~/ieee-2024-px4-gz-docker/work/ros2_ws`
 
@@ -15,6 +7,15 @@ Step 2 set up work folder:
 `source /opt/ros/humble/setup.bash`
 
 `colcon build`
+
+Step 2 set up docker:
+
+`cd ~/ieee-2024-px4-gz-docker`
+
+`docker pull melodyliyulin/ieee-2024-px4-gz-docker:latest`
+
+`docker image tag melodyliyulin/ieee-2024-px4-gz-docker:latest px4_gz`
+
 
 Step 3 run docker image
 

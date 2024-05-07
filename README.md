@@ -1,5 +1,7 @@
 Step 1 set up work folder:
 
+`./get_src.sh`
+
 `cd ~/ieee-2024-px4-gz-docker/work/ros2_ws`
 
 `rosdep install -r --from-paths src -i -y --rosdistro humble`

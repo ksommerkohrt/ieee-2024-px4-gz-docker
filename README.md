@@ -1,3 +1,6 @@
+IEEE 2024 Maze Competition
+- clone this repository and navigate to the directory
+  
 Step 1 set up work folder:
 
 `./get_src.sh`
